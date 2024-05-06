@@ -1,7 +1,7 @@
-package entities.impl;
+package entities.impl.ext;
 
 import entities.AnimalType;
-import entities.PackAnimal;
+import entities.impl.PackAnimal;
 
 import java.time.LocalDate;
 

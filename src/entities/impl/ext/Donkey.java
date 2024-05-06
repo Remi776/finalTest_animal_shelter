@@ -1,6 +1,7 @@
-package entities.impl;
+package entities.impl.ext;
 
 import entities.AnimalType;
+import entities.impl.PackAnimal;
 
 import java.time.LocalDate;
 
@@ -14,12 +15,9 @@ public class Donkey extends Horse{
 
     public Donkey(String name, LocalDate birthDate) {
         super(name, birthDate);
+        this.loadCapacity = PackAnimal.DEFAULT_CAPACITY;
     }
 
-    public Donkey(String name, LocalDate birthDate, String breed, double speed) {
-        super(name, birthDate, breed, speed);
-        this.loadCapacity = DEFAULT_CAPACITY;
-    }
 
     public double getLoadCapacity() {
         return loadCapacity;

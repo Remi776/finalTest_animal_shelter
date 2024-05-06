@@ -1,6 +1,6 @@
-package entities.impl;
+package entities.impl.ext;
 
-import entities.PackAnimal;
+import entities.impl.PackAnimal;
 
 import java.time.LocalDate;
 
@@ -11,13 +11,13 @@ public class Camel extends PackAnimal {
 
     public Camel(String name, LocalDate birthDate) {
         super(name, birthDate);
+        this.loadCapacity = DEFAULT_CAPACITY;
     }
 
     public Camel(String name, LocalDate birthDate, String breed, String speed) {
-        super(name, birthDate);
+        this(name, birthDate);
         this.breed = breed;
         this.speed = speed;
-        this.loadCapacity = DEFAULT_CAPACITY;
     }
 
     public String getBreed() {

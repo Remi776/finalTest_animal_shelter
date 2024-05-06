@@ -1,7 +1,5 @@
 package entities;
 
-import services.CommandService;
-
 public abstract class AbstractAnimal {
     private static int counter;
     private final int id = ++counter;

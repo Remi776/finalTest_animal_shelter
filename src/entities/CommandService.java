@@ -1,4 +1,4 @@
-package services;
+package entities;
 
 import entities.Command;
 

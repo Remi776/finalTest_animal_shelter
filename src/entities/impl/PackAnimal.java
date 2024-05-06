@@ -1,6 +1,8 @@
-package entities;
+package entities.impl;
 
-import services.CommandService;
+import entities.AbstractAnimal;
+import entities.Command;
+import entities.CommandService;
 
 import java.time.LocalDate;
 import java.time.Period;
