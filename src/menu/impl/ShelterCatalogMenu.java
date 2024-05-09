@@ -130,7 +130,11 @@ public class ShelterCatalogMenu implements Menu {
             fullInfo.append(", commands: ");
             fullInfo.append(camel.getCommandList());
         }
-        System.out.println(fullInfo);
+        if (fullInfo.isEmpty()){
+            System.out.println("No such ID.");
+        } else {
+            System.out.println(fullInfo);
+        }
     }
 
     private void printAllAnimalsFromShelter() {

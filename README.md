@@ -9,12 +9,13 @@
 ## Задание
 
 ### 1. Работа в операционной системе Linux Ubuntu
-    1.1 Создать два файла Pets и PackAnimals
-        - заполнить файлы в соответствии с типами
-        - объединить содержимое файлов в файл Human Friends
-        - создать директорию и переместить туда Humam Friends
-    1.2 Подключить дополнительный репозиторий `MySQL`. Установить любой пакет из этого репозитория  
-        - установить и удалить `deb-пакет` с помощью `dpkg`
+1.1 Создать два файла Pets и PackAnimals
+- заполнить файлы в соответствии с типами
+- объединить содержимое файлов в файл Human Friends
+- создать директорию и переместить туда Humam Friends
+
+1.2 Подключить дополнительный репозиторий `MySQL`. Установить любой пакет из этого репозитория  
+- установить и удалить `deb-пакет` с помощью `dpkg`
 > Команды представлены в файле [*linux.txt*](linux.txt)
 
 ### 2. Работа с MySQL
@@ -120,3 +121,61 @@ create table combined_tables_dbHumanFriends
   from AnimalTypes;
 ```
 ### 3. Java OOП
+
+3.1 Написать программу, имитирующую работу реестра домашних животных
+
+#### В программе реализован следующий функционал:
+
+- Получить полный каталог
+- Добавить новое животное
+- Получить полную информацию по выбранному животному
+- Отфильтровать каталог
+
+3.2 Создать класс `Counter()`, который позволяет вывести на экран общее количество созданных животных любого типа
+
+## Структура проекта 
+
+```txt
+.
+├── README.md
+├── linux.txt
+├── sql_tables_images
+│   ├── Animal_Type.png
+│   ├── Pack_Animals.png
+│   ├── Pets.png
+│   ├── adult_animals_1_to_3_years.png
+│   ├── combined_tables_dbHumanFriends.png
+│   └── database_tables.png
+├── src
+│   ├── Main.java
+│   ├── configs
+│   │   └── ApplicationContext.java
+│   ├── entities
+│   │   ├── AbstractAnimal.java
+│   │   ├── AnimalType.java
+│   │   ├── Command.java
+│   │   ├── CommandService.java
+│   │   └── impl
+│   │       ├── PackAnimal.java
+│   │       ├── Pet.java
+│   │       └── ext
+│   │           ├── Camel.java
+│   │           ├── Cat.java
+│   │           ├── Dog.java
+│   │           ├── Donkey.java
+│   │           ├── Hamster.java
+│   │           └── Horse.java
+│   ├── menu
+│   │   ├── Menu.java
+│   │   └── impl
+│   │       ├── FilterMenu.java
+│   │       ├── MainMenu.java
+│   │       └── ShelterCatalogMenu.java
+│   ├── services
+│   │   ├── ShelterManagementService.java
+│   │   └── impl
+│   │       └── DefaultShelterManagementService.java
+│   └── util
+│       └── Counter.java
+└── uml_diagram.png
+```
