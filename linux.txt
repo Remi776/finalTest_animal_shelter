@@ -1,0 +1,66 @@
+LINUX
+
+Files & dir
+- roman@roman-linux-mbp:~/geekbrains/java_certification_04-2024$ cat > Pets 
+// name nickname yearOfBirth
+dog clay 2015
+cat chopick 2014
+hamster Smack 2023
+
+- roman@roman-linux-mbp:~/geekbrains/java_certification_04-2024$ cat > Pack_animals 
+// name nickname yearOfBirth
+horse Layla 2021
+camel bogdan 2020
+donkey parsifal 2018
+
+- roman@roman-linux-mbp:~/geekbrains/java_certification_04-2024$ cat Pets Pack_animals > Animals
+// name nickname yearOfBirth
+dog clay 2015
+cat chopick 2014
+hamster Smack 2023
+// name nickname yearOfBirth
+horse Layla 2021
+camel bogdan 2020
+donkey parsifal 2018
+
+- roman@roman-linux-mbp:~/geekbrains/java_certification_04-2024$ mv Animals Human_Friends
+
+- roman@roman-linux-mbp:~/geekbrains/java_certification_04-2024$ mkdir Animals && mv Human_Friends Animals/
+
+- roman@roman-linux-mbp:~/geekbrains/java_certification_04-2024$ ls
+Animals  Pack_animals  Pets
+
+- roman@roman-linux-mbp:~/geekbrains/java_certification_04-2024$ ls Animals/
+Human_Friends
+
+
+
+Installing MySQL & additional repos/deb-packages
+- roman@roman-linux-mbp:~/geekbrains/java_certification_04-2024/Animals$ sudo wget https://dev.mysql.com/get/mysql-apt-config_0.8.30-1_all.deb
+
+- roman@roman-linux-mbp:~/geekbrains/java_certification_04-2024/Animals$ sudo dpkg -i mysql-apt-config_0.8.30-1_all.deb
+
+- roman@roman-linux-mbp:~/geekbrains/java_certification_04-2024/Animals$ sudo apt update
+
+- roman@roman-linux-mbp:~/geekbrains/java_certification_04-2024/Animals$ systemctl status mysql
+● mysql.service - MySQL Community Server
+     Loaded: loaded (/usr/lib/systemd/system/mysql.service; enabled; preset: enabled)
+     Active: active (running) since Wed 2024-05-01 20:22:36 IDT; 28min ago
+       Docs: man:mysqld(8)
+             http://dev.mysql.com/doc/refman/en/using-systemd.html
+    Process: 1354 ExecStartPre=/usr/share/mysql-8.4/mysql-systemd-start pre (code=exited, status=0/SUCCESS)
+   Main PID: 1422 (mysqld)
+     Status: "Server is operational"
+      Tasks: 34 (limit: 4615)
+     Memory: 470.6M (peak: 482.7M)
+        CPU: 34.209s
+     CGroup: /system.slice/mysql.service
+             └─1422 /usr/sbin/mysqld
+
+May 01 20:22:32 roman-linux-mbp systemd[1]: Starting mysql.service - MySQL Community Server...
+May 01 20:22:36 roman-linux-mbp systemd[1]: Started mysql.service - MySQL Community Server.
+
+- roman@roman-linux-mbp:~/geekbrains/java_certification_04-2024/Animals$ sudo dpkg -i mysql-apt-config_0.8.30-1_all.deb
+
+- roman@roman-linux-mbp:~/geekbrains/java_certification_04-2024/Animals$ sudo dpkg -P mysql-apt-config
+
