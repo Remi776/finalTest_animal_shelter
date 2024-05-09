@@ -45,19 +45,19 @@ public class Pet extends AbstractAnimal implements CommandService {
         this.commandList = commandList;
     }
 
-    public String getAgeInYears(){
+    public String getAgeInYears() {
         int years = Period.between(birthDate, LocalDate.now()).getYears();
         int month = Period.between(birthDate, LocalDate.now()).getMonths() % 12;
         return years + "." + month;
     }
 
-    public void play(Command command){
+    public void play(Command command) {
         System.out.println("The animal has completed the command: " + command.toString());
     }
 
     @Override
     public boolean learnCommand(Command newCommand) {
-        if(commandList.contains(newCommand)){
+        if (commandList.contains(newCommand)) {
             return false;
         }
         commandList.add(newCommand);
@@ -66,9 +66,7 @@ public class Pet extends AbstractAnimal implements CommandService {
 
     @Override
     public String toString() {
-        return "Pet{" +
-                "name='" + name + '\'' +
-                ", birthDate=" + birthDate +
-                '}';
+        return super.toString() + ", name: " + name +
+                ", birthDate: " + birthDate;
     }
 }

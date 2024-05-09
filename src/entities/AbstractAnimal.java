@@ -26,9 +26,7 @@ public abstract class AbstractAnimal {
 
     @Override
     public String toString() {
-        return "AbstractAnimal{" +
-                "id=" + id +
-                ", animalType=" + animalType +
-                '}';
+        return "id: " + id +
+                ", animalType: " + animalType;
     }
 }

@@ -7,33 +7,37 @@ import entities.impl.PackAnimal;
 import entities.impl.Pet;
 import entities.impl.ext.*;
 import services.ShelterManagementService;
+import util.Counter;
 
 import java.time.LocalDate;
 import java.util.*;
 
 public class DefaultShelterManagementService implements ShelterManagementService {
-    Map<Integer, AbstractAnimal> dbShelter;
+    private static Map<Integer, AbstractAnimal> dbShelter;
 
-    public DefaultShelterManagementService() {
+    static {
         init();
     }
 
-    private void init() {
+    public DefaultShelterManagementService() {
+    }
 
-        Pet cat1 = new Cat("Chopick", LocalDate.of(2022, 8, 1));
+    private static void init() {
+
+        Cat cat1 = new Cat("Chopick", LocalDate.of(2022, 8, 1));
         cat1.learnCommand(new Command("paw"));
 
-        Pet cat2 = new Cat("Stephan", LocalDate.of(2024, 1, 1));
+        Cat cat2 = new Cat("Stephan", LocalDate.of(2024, 1, 1));
         cat2.learnCommand(new Command("jump", "The cat jumps up."));
 
-        Pet dog1 = new Dog("Clay", LocalDate.of(2015, 4, 13), "Labrador");
+        Dog dog1 = new Dog("Clay", LocalDate.of(2015, 4, 13), "Labrador");
         dog1.learnCommand(new Command("sit"));
         dog1.learnCommand(new Command("fetch"));
 
-        Pet dog2 = new Dog("Grusha", LocalDate.of(2011, 12, 25));
+        Dog dog2 = new Dog("Grusha", LocalDate.of(2011, 12, 25));
         dog2.learnCommand(new Command("bark"));
 
-        Pet hamster = new Hamster("Smack", LocalDate.of(2023, 1, 10));
+        Hamster hamster = new Hamster("Smack", LocalDate.of(2023, 1, 10));
         hamster.learnCommand(new Command("roll"));
 
         Camel camel = new Camel("Bogdan", LocalDate.of(2022, 3, 27));
@@ -68,7 +72,7 @@ public class DefaultShelterManagementService implements ShelterManagementService
     }
 
     @Override
-    public List<AbstractAnimal> getAllAnimals() {
+    public List<AbstractAnimal> getListOfAnimals() {
         return new ArrayList<>(dbShelter.values());
     }
 
@@ -86,7 +90,11 @@ public class DefaultShelterManagementService implements ShelterManagementService
 
     @Override
     public int removeAnimal(AbstractAnimal animal) {
-        if (!dbShelter.containsKey(animal.getId())) return -1;
-        return dbShelter.remove(animal.getId()).getId();
+        try {
+            return dbShelter.remove(animal.getId()).getId();
+        } catch (NullPointerException e) {
+            System.out.printf("(available: 1 - %d) ", dbShelter.size());
+        }
+        return -1;
     }
 }

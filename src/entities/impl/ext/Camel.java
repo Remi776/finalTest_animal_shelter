@@ -1,20 +1,24 @@
 package entities.impl.ext;
 
+import entities.AnimalType;
 import entities.impl.PackAnimal;
 
 import java.time.LocalDate;
 
 public class Camel extends PackAnimal {
     private String breed;
-    private String speed;
+    private double speed;
     private double loadCapacity;
+    {
+        setAnimalType(AnimalType.CAMEL);
+    }
 
     public Camel(String name, LocalDate birthDate) {
         super(name, birthDate);
         this.loadCapacity = DEFAULT_CAPACITY;
     }
 
-    public Camel(String name, LocalDate birthDate, String breed, String speed) {
+    public Camel(String name, LocalDate birthDate, String breed, double speed) {
         this(name, birthDate);
         this.breed = breed;
         this.speed = speed;
@@ -28,11 +32,11 @@ public class Camel extends PackAnimal {
         this.breed = breed;
     }
 
-    public String getSpeed() {
+    public double getSpeed() {
         return speed;
     }
 
-    public void setSpeed(String speed) {
+    public void setSpeed(double speed) {
         this.speed = speed;
     }
 

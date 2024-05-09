@@ -62,9 +62,7 @@ public class PackAnimal extends AbstractAnimal implements CommandService {
 
     @Override
     public String toString() {
-        return "PackAnimal{" +
-                "name='" + name + '\'' +
-                ", birthDate=" + birthDate +
-                '}';
+        return super.toString() + ", name: " + name +
+                ", birthDate: " + birthDate;
     }
 }

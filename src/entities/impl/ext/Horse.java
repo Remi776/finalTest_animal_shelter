@@ -37,4 +37,6 @@ public class Horse extends PackAnimal {
     public void setSpeed(double speed) {
         this.speed = speed;
     }
+
+
 }
